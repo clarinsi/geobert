@@ -158,10 +158,10 @@ class MultiLabelClassificationModel(ClassificationModel):
         if not self.args.quantized_model:
             if self.pos_weight:
                 self.model = model_class.from_pretrained(
-                    model_name, config=self.config, pos_weight=torch.Tensor(self.pos_weight).to(self.device), **kwargs
+                    model_name, config=self.config, pos_weight=torch.Tensor(self.pos_weight).to(self.device), regression=self.args.regression, **kwargs
                 )
             else:
-                self.model = model_class.from_pretrained(model_name, config=self.config, **kwargs)
+                self.model = model_class.from_pretrained(model_name, config=self.config, regression=self.args.regression, **kwargs)
         else:
             quantized_weights = torch.load(os.path.join(model_name, "pytorch_model.bin"))
             if self.pos_weight:

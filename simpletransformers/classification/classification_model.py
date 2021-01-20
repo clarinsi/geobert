@@ -1017,7 +1017,7 @@ class ClassificationModel:
                     outputs = model(**inputs)
                     tmp_eval_loss, logits = outputs[:2]
 
-                if multi_label:
+                if multi_label and not args.regression:
                     logits = logits.sigmoid()
                 if self.args.n_gpu > 1:
                     tmp_eval_loss = tmp_eval_loss.mean()
@@ -1062,12 +1062,11 @@ class ClassificationModel:
                 else:
                     final_preds.append(mode_pred[0])
             preds = np.array(final_preds)
-        elif not multi_label and args.regression is True:
+        elif args.regression:
             preds = np.squeeze(preds)
             model_outputs = preds
         else:
             model_outputs = preds
-
             if not multi_label:
                 preds = np.argmax(preds, axis=1)
 
@@ -1123,7 +1122,7 @@ class ClassificationModel:
         if not no_cache:
             no_cache = args.no_cache
 
-        if not multi_label and args.regression:
+        if args.regression:
             output_mode = "regression"
         else:
             output_mode = "classification"
@@ -1389,7 +1388,7 @@ class ClassificationModel:
                             tmp_eval_loss, logits = outputs[:2]
                         embedding_outputs, layer_hidden_states = outputs[2][0], outputs[2][1:]
 
-                        if multi_label:
+                        if multi_label and not args.regression:
                             logits = logits.sigmoid()
 
                         if self.args.n_gpu > 1:
@@ -1433,7 +1432,7 @@ class ClassificationModel:
                             outputs = model(**inputs)
                             tmp_eval_loss, logits = outputs[:2]
 
-                        if multi_label:
+                        if multi_label and not args.regression:
                             logits = logits.sigmoid()
 
                         if self.args.n_gpu > 1:
@@ -1466,8 +1465,10 @@ class ClassificationModel:
                 preds = [preds[window_range[0] : window_range[1]] for window_range in window_ranges]
 
                 model_outputs = preds
-
-                preds = [np.argmax(pred, axis=1) for pred in preds]
+                if args.regression:
+                    preds = np.array([np.mean(pred, axis=0) for pred in preds])
+                else:
+                    preds = [np.argmax(pred, axis=1) for pred in preds]
                 final_preds = []
                 for pred_row in preds:
                     mode_pred, counts = mode(pred_row)
@@ -1476,7 +1477,7 @@ class ClassificationModel:
                     else:
                         final_preds.append(mode_pred[0])
                 preds = np.array(final_preds)
-            elif not multi_label and args.regression is True:
+            elif args.regression:
                 preds = np.squeeze(preds)
                 model_outputs = preds
             else:

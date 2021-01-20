@@ -160,6 +160,7 @@ class MultiLabelClassificationArgs(ModelArgs):
     labels_list: list = field(default_factory=list)
     labels_map: dict = field(default_factory=dict)
     lazy_loading: bool = False
+    regression: bool = False
     special_tokens_list: list = field(default_factory=list)
 
 
