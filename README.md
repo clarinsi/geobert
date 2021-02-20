@@ -1,4 +1,4 @@
-# geo-bert
+# geoBERT
 
 A tool for predicting geolocations of (Twitter, Jodel) messages. Winner of VarDial2020 and VarDial2021 shared tasks on geolocation prediction on social media.
 
