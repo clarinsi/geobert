@@ -15,7 +15,7 @@ Sjutra idemo na more [42.41667169 19.15543229] {'country_code': 'ME', 'city': 'M
 Skuvaj kahvu, bona! [43.66061352 19.42953163] {'country_code': 'BA', 'city': 'Rudo', 'country': 'Bosnia and Herzegovina'}
 ```
 
-The winning system for the area of Bosnia, Croatia, Montenegro and Serbia can be found on HuggingFace under [bcms-bertic-geo](https://huggingface.co/CLASSLA/bcms-bertic-geo), for the area of Germany and Austria under [bert-base-german-dbmdz-uncased-geo](https://huggingface.co/CLASSLA/bert-base-german-dbmdz-uncased-geo), and for Switzerland under [swissbert-geo](https://huggingface.co/CLASSLA/swissbert-geo).
+The winning system for the area of Bosnia, Croatia, Montenegro and Serbia can be found on HuggingFace under [bcms-bertic-geo](https://huggingface.co/classla/bcms-bertic-geo), for the area of Germany and Austria under [bert-base-german-dbmdz-uncased-geo](https://huggingface.co/classla/bert-base-german-dbmdz-uncased-geo), and for Switzerland under [swissbert-geo](https://huggingface.co/classla/swissbert-geo).
 
 While the models are the state-of-the-art in geolocation prediction, their predictions are as good as the data they are trained on, so use them with reasonable caution!
 
