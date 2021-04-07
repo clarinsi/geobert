@@ -92,7 +92,7 @@ model_args = {
 
 model = MultiLabelClassificationModel(
     "electra",
-    "CLASSLA/bcms-bertic",
+    "classla/bcms-bertic",
     num_labels=2,
     loss_fct="MAELoss",
     args=model_args,
