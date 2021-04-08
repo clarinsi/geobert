@@ -23,6 +23,10 @@ While the models are the state-of-the-art in geolocation prediction, their predi
 
 To train a new model, use code similar to the `train_bcms.py` script. Training and dev data is supposed to be in a tab-separated (lat, lon, text) triple format, each message in one line.
 
+The `alternative` folder provides an alternative implementation of the same script, with largely the same functionality.
+
+The `pretrain_constrained` folder provides code to pre-train a BERT model from scratch. We used this code as a basis for our constrained submissions, but for real-world applications outside the limitations of a shared task you may rather want to use the unconstrained models referenced above.
+
 ## Citing
 
 Please cite the following paper if you use the models or code:
