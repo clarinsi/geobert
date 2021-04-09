@@ -3,7 +3,8 @@
 These scripts provide an alternative interface to the `predict_bcms.py` script. They have been used for the constrained submissions at VarDial 2021.
 
 Each run is defined by an entry in a JSON file. For example, the following code defines the experiment `regr_ch_constr30k_3`:
-```{
+```
+{
  "regr_ch_constr30k_3": {
     "_train_data": "ch/train.txt",
     "_dev_data": "ch/dev.txt",
