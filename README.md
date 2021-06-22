@@ -32,5 +32,16 @@ The `pretrain_constrained` folder provides code to pre-train a BERT model from s
 Please cite the following paper if you use the models or code:
 
 ```
-TBA
+@inproceedings{scherrer-ljubesic-2021-social,
+    title = "Social Media Variety Geolocation with geo{BERT}",
+    author = "Scherrer, Yves  and
+      Ljube{\v{s}}i{\'c}, Nikola",
+    booktitle = "Proceedings of the Eighth Workshop on NLP for Similar Languages, Varieties and Dialects",
+    month = apr,
+    year = "2021",
+    address = "Kiyv, Ukraine",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2021.vardial-1.16",
+    pages = "135--140",
+}
 ```
